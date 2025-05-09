@@ -10,7 +10,7 @@ export default function Home() {
   const [nextId, setNextId] = useState(1);
 
   useEffect(() => {
-    const saveTasks = JSON.parse(localStorage.getItem('task')) || [];
+    const saveTasks = JSON.parse(localStorage.getItem('tasks')) || [];
     setTasks(saveTasks);
     const maxId = saveTasks.reduce((max,task) => Math.max(max, task.id), 0);
     setNextId(maxId +1 );
@@ -32,13 +32,13 @@ export default function Home() {
     setNewTask('');
 
     setNextId(nextId + 1);
-    localStorage.setItem('task', JSON.stringify(updatedTasks));
+    localStorage.setItem('tasks', JSON.stringify(updatedTasks));
   };
 
   const handleDelete = (index) =>{
     const newTasks = tasks.filter((_, i) => i !== index);
     setTasks(newTasks);
-    localStorage.setItem('task', JSON.stringify(newTasks));
+    localStorage.setItem('tasks', JSON.stringify(newTasks));
   }
 
   return (

@@ -9,7 +9,7 @@ export default function TaskList({ tasks , onDelete}) {
                     className="board p-2 rounded founded flex justify-between items-center"
                 >
                     <Link
-                        href = {`/task'${tasks.id}`}
+                        href = {`/task/${tasks.id}`}
                     >
                         {tasks.title}
                     </Link>
